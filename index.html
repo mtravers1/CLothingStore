@@ -3,13 +3,44 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <!-- <script>
-            const url="http://localhost:8080"
-         fetch(url)
-                     .then(res=>res.json())
-                     .then(data=>console.log(data))
-                 </script> -->
-        <p>Head</p>
+        <script>
+            const store=[{id:1, name:"foamposite", category:"shoes", description:"clean", photos:"", price:240.00, color:"Eggplant"  }]
+        //     const url="http://localhost:8080"
+        //  fetch(url)
+        //              .then(res=>res.json())
+        //              .then(data=>console.log(data))
+                 </script>
+                 
+        <p>Clothing Store</p>
+        <div>
+            <div class="list">
+
+            </div>
+            <div class="stores">
+
+            </div>
+            <div class="store">
+                <div class="name">
+
+                </div>
+            </div>
+
+
+            <div>
+                <div class="description">
+
+                </div>
+            </div>
+
+
+
+            <div>
+                <div class="price">
+
+                </div>
+            </div>
+            
+        </div>
         <form>
             <span>
                 <label>id</label>
@@ -31,15 +62,42 @@
                 <label>price</label>
                 <input class="price"/>
             </span>
+            <button class="button">submit</button>
            
         </form>
  
-        <!-- <script>
+        <script>
             $(document).ready(function () {
-                $.get(url,function(data,status){
-                    console.log(data)
+                // const url="http://localhost:8080"
+
+                // $.get(url,function(data,status){
+                //     console.log(data)
+                //     let s=data
+                //     $.each(s, function(key, val){
+                //         $(".stores").append('<p>'+val.price+'</p>')
+                //     })
+                    
+                //     $(".name").append('<p>'+data.name+'</p>')
+                // })
+
+                $.each(store, function(key, val){
+                    $(".store").append('<p>'+val.name+'</p>')
                 })
               })
-        </script> -->
+        </script>
+        <script>
+            $(document).ready(function(){
+                $(".button").click(function(e){
+                    e.preventDefault()
+                let name=$(".name").val();
+                let category=$(".category").val()
+
+                let item= name+category;
+
+                $(".list").append('<p>'+item+'</p>')
+                })
+              
+            })
+        </script>
     </body>
 </html>

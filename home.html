@@ -1,13 +1,45 @@
-<html>
+<!DOCTYPE html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
+        <!-- <script>
+            const url="http://localhost:8080"
+         fetch(url)
+                     .then(res=>res.json())
+                     .then(data=>console.log(data))
+                 </script> -->
         <p>Head</p>
-        <script>
+        <form>
+            <span>
+                <label>id</label>
+                <input class="id"/>
+            </span>
+            <span>
+                <label>Name</label>
+                <input class="name"/>
+            </span>
+            <span>
+                <label>category</label>
+                <input class="category"/>
+            </span>
+            <span>
+                <label>description</label>
+                <input class="description"/>
+            </span>
+            <span>
+                <label>price</label>
+                <input class="price"/>
+            </span>
+           
+        </form>
+ 
+        <!-- <script>
             $(document).ready(function () {
-                console.log("hello")
+                $.get(url,function(data,status){
+                    console.log(data)
+                })
               })
-        </script>
+        </script> -->
     </body>
 </html>

@@ -52,6 +52,12 @@
                 </div> -->
             </div>
         </div>
+        <div>
+            <h3>Data from Spring Boot</h3>
+            <div id="data">
+
+            </div>
+        </div>
             <div id="newstore">
 
             </div>
@@ -75,7 +81,7 @@
         <form>
             <span>
                 <label>id</label>
-                <input class="id"/>
+                <input id="id"/>
             </span>
             <span>
                 <label>Name</label>
@@ -123,10 +129,10 @@
                 let newstore=[{id:1, photo:'', name:"", category:"", description:"", photos:"", price:"", color:""}]
                 $("#button").click(function(e){
                     e.preventDefault()
-
+                let id=$("#id").val()
                 let name=$("#name").val();
                 let category=$("#category").val()
-                let price=$("#price").val()
+                // let price=$("#price").val()
                 let description=$("#description").val()
                 let color=$("#color").val();
 
@@ -134,7 +140,9 @@
                 newstore.push(name+category+price+description+color);
 
                 $("#newstore").html(name+'   '+category+'    '+'       '+price+'    '+description+'     '+color);
-                    
+                $.post(url, {name:name,category:category,description:description,photos:null,price:null,color:color}, function(data, status){
+                    console.log(status)
+                })
                 // $.each(newstore, function(key,val){
                 //     $("#newstore").append('<p>'+val.name+'</p>')
                 // })
@@ -147,8 +155,19 @@
                 // })
               
             })
+            const url="http://localhost:8080"
+        $.get(url, function(data, status){
+            console.log(data)
+            $.each(data, function(key, val){
+                $("#data").append('<div class="d-flex flex-column "><div><img src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div></div>')
 
-        
+                console.log(data);
+
+            })
+        })
+        </script>
+        <script>
+           
         </script>
         </div>
  

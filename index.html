@@ -1,28 +1,59 @@
 <!DOCTYPE html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    
     </head>
     <body>
         <script>
-            const store=[{id:1, name:"foamposite", category:"shoes", description:"clean", photos:"", price:240.00, color:"Eggplant"  }]
+            let store=[{id:1, photo:'foam.jpg', name:"foamposite", category:"shoes", description:"clean", photos:"", price:240.00, color:"Eggplant"},
+            {id:2, photo:'hoodie.jpg', name:"Baliciage", category:"hoodie", description:"clean", photos:"", price:6000.00, color:"black/whitc"  },
+            {id:3, photo:'hat.jpg', name:"Gucci hat", category:"hat", description:"clean", photos:"", price:820.00, color:"black/red/green"  }]
         //     const url="http://localhost:8080"
         //  fetch(url)
         //              .then(res=>res.json())
         //              .then(data=>console.log(data))
                  </script>
-                 
-        <p>Clothing Store</p>
-        <div>
+              <div>
+                <div>
+                    <nav class=" navbar-nav mr-auto " >
+                        <h1 class="text-center">Clothing Store In Progress</h1>
+
+                        <ul class="d-flex flex-row list-unstyled justify-content-around bg-primary bg-gradient" >
+                            <li>new</li>
+                        
+                            <li>contacts</li>
+                        
+                            <li>about</li>
+                            <li>
+                                <div class="d-flex">
+                                    <button class="" id="cat">categories</button>
+                                    <div class="d-flex" id="catmenu">
+
+                                </div>
+                               
+
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+        <div class="container-fluid">
             <div class="list">
 
             </div>
-            <div class="stores">
+            <div class="">
+            <div id="store" class="d-flex flex-row flex-wrap justify-content-around" >
+                <!-- <div class="name">
 
+                </div> -->
             </div>
-            <div class="store">
-                <div class="name">
+        </div>
+            <div id="newstore">
 
-                </div>
             </div>
 
 
@@ -48,24 +79,26 @@
             </span>
             <span>
                 <label>Name</label>
-                <input class="name"/>
+                <input id="name"/>
             </span>
+            <label>color</label>
+            <input id="color"/>
             <span>
                 <label>category</label>
-                <input class="category"/>
+                <input id="category"/>
             </span>
             <span>
                 <label>description</label>
-                <input class="description"/>
+                <input id="description"/>
             </span>
             <span>
                 <label>price</label>
-                <input class="price"/>
+                <input id="price"/>
             </span>
-            <button class="button">submit</button>
+            <button id="button" type="button" class="btn btn-link">Add</button>
            
         </form>
- 
+        
         <script>
             $(document).ready(function () {
                 // const url="http://localhost:8080"
@@ -81,23 +114,45 @@
                 // })
 
                 $.each(store, function(key, val){
-                    $(".store").append('<p>'+val.name+'</p>')
+                    $("#store").append('<div class="d-flex flex-column "><div><img src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div></div>')
                 })
               })
         </script>
         <script>
             $(document).ready(function(){
-                $(".button").click(function(e){
+                let newstore=[{id:1, photo:'', name:"", category:"", description:"", photos:"", price:"", color:""}]
+                $("#button").click(function(e){
                     e.preventDefault()
-                let name=$(".name").val();
-                let category=$(".category").val()
 
-                let item= name+category;
+                let name=$("#name").val();
+                let category=$("#category").val()
+                let price=$("#price").val()
+                let description=$("#description").val()
+                let color=$("#color").val();
 
-                $(".list").append('<p>'+item+'</p>')
+                let item= {name,category,price,description,color};
+                newstore.push(name+category+price+description+color);
+
+                $("#newstore").html(name+'   '+category+'    '+'       '+price+'    '+description+'     '+color);
+                    
+                // $.each(newstore, function(key,val){
+                //     $("#newstore").append('<p>'+val.name+'</p>')
+                // })
+
+                // $(".list").append('<p>'+item+'</p>')
                 })
+                // $.each(store, function(key, val){
+                //     $("#new").append('<img src='+val.photo+'></p><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price)
+
+                // })
               
             })
+
+        
         </script>
+        </div>
+ 
+
+   
     </body>
 </html>

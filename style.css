@@ -1,0 +1,14 @@
+#store img{
+    width: 200px;
+    height: 200px
+}
+
+.navmenu link{
+    color:black;
+}
+
+.catbutton {
+
+    border: none;
+    background-color: none;
+}

@@ -3,12 +3,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-
+        <linl rel="stylesheet" href="style.css"></linl>
     
     </head>
     <body>
         <script>
             let store=[{id:1, photo:'foam.jpg', name:"foamposite", category:"shoes", description:"clean", photos:"", price:240.00, color:"Eggplant"},
+            {id:2, photo:'hoodie.jpg', name:"Baliciage", category:"hoodie", description:"clean", photos:"", price:6000.00, color:"black/whitc"  },
+            {id:3, photo:'hat.jpg', name:"Gucci hat", category:"hat", description:"clean", photos:"", price:820.00, color:"black/red/green"  },
+            {id:4, photo:'airpurifieer.jpg', name:"Air Purifier", category:"electronic", description:"clean", photos:"", price:400.00, color:"Black"},
+            {id:5, photo:'juicer.jpg', name:"Juicer", category:"electronics", description:"clean", photos:"", price:530.00, color:"grey"  },
+            {id:6, photo:'weight.jpg', name:"30lb dumbbell", category:"fitness", description:"clean", photos:"", price:40.00, color:"black"  },
+            {id:7, photo:'xbox.jpg', name:"Xbox", category:"Video Game", description:"clean", photos:"", price:500.00, color:"black"},
             {id:2, photo:'hoodie.jpg', name:"Baliciage", category:"hoodie", description:"clean", photos:"", price:6000.00, color:"black/whitc"  },
             {id:3, photo:'hat.jpg', name:"Gucci hat", category:"hat", description:"clean", photos:"", price:820.00, color:"black/red/green"  }]
         //     const url="http://localhost:8080"
@@ -19,38 +25,62 @@
               <div>
                 <div>
                     <nav class=" navbar-nav mr-auto " >
-                        <h1 class="text-center">Clothing Store In Progress</h1>
+                        <div class="d-flex justify-content-between">
+                        <h2 class="text-center">Clothing Store In Progress</h2>
+                            <input class="border  border-dark m-3 rounded w-25" placeholder="search"/>
+                            <span><p style="margin:15px">login</p></span>
 
-                        <ul class="d-flex flex-row list-unstyled justify-content-around bg-primary bg-gradient" >
-                            <li>new</li>
+                    </div>
+                        <ul id="navmenu" class="d-flex flex-row list-unstyled justify-content-around bg-primary bg-gradient" >
+                            
+                            <li>
+                                <button class="border-0 bg-transparent"><link class="">New</link></button></li>
                         
-                            <li>contacts</li>
-                        
-                            <li>about</li>
+                            <li><button class="border-0 bg-transparent"><link >contacts</link></button></li>
+                                
+                            <li><button class="border-0 bg-transparent"><link class="border-0 bg-transparent">About</link></button></li>
                             <li>
                                 <div class="d-flex">
-                                    <button class="" id="cat">categories</button>
+                                    <button class="border-0 bg-transparent" class="" id="catbutton">categories</button>
                                     <div class="d-flex" id="catmenu">
 
                                 </div>
-                               
-
+                                
+                                <style>
+                                    .navmenu ul{
+                                        border:none;
+                                        background-color: none;
+                                    }
+                                </style>
                                 </div>
                             </li>
                         </ul>
                     </nav>
 
                 </div>
-        <div class="container-fluid">
-            <div class="list">
+               <div>
+                    <h4>New</h4>
+                    <div id="new">
 
-            </div>
+                    </div>
+               </div>
+        <div class="container-fluid">
             <div class="">
+                <h4>All</h4>
             <div id="store" class="d-flex flex-row flex-wrap justify-content-around" >
+                <style>
+                    #store img{
+                        width: 250px;
+                        height: 250px;
+                    }
+                </style>
                 <!-- <div class="name">
 
                 </div> -->
             </div>
+        </div>
+        <div>
+            <h4>Best Sellers</h4>
         </div>
         <div>
             <h3>Data from Spring Boot</h3>
@@ -120,8 +150,14 @@
                 // })
 
                 $.each(store, function(key, val){
-                    $("#store").append('<div class="d-flex flex-column "><div><img src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div></div>')
+                    $("#store").append('<div class="d-flex flex-column  "><div><img src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div><button id="add">Add to cart</button></div>')
+                     console.log(store[1])               
                 })
+                $("#add").click(function(){
+                        
+                        let name=val.name;
+                        console.log(name)
+                    })
               })
         </script>
         <script>
@@ -159,7 +195,7 @@
         $.get(url, function(data, status){
             console.log(data)
             $.each(data, function(key, val){
-                $("#data").append('<div class="d-flex flex-column "><div><img src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div></div>')
+                $("#data").append('<div class="d-flex flex-column "><div><img width="200" height="200" id="productimage" src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div></div>')
 
                 console.log(data);
 
@@ -167,7 +203,14 @@
         })
         </script>
         <script>
-           
+            $(document).ready(function(){
+                // $.each(store[1-3], function(key, val){
+                //     $("#new").append('<div class="d-flex flex-column "><div><img width="200" height="200" id="productimage" src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div></div>')
+                // })
+               console.log(store[1].price)
+                $("#new").append('<div class="d-flex flex-row justify-content-around"><div class="d-flex flex-column "><div><img width="200" height="200" id="productimage" src='+store[0].photo+'></div></p><div class="d-flex flex-column"><p>'+store[0].name+'</p><p>'+store[0].description+'</p><p>'+store[0].color+'</p><p>'+store[0].price+'</p></div></div><div><div><img width="200" height="200" id="productimage" src='+store[1].photo+'></div></p><div class="d-flex flex-column"><p>'+store[1].name+'</p><p>'+store[1].description+'</p><p>'+store[1].color+'</p><p>'+store[1].price+'</p></div></div><div><div><img width="200" height="200" id="productimage" src='+store[2].photo+'></div></p><div class="d-flex flex-column"><p>'+store[2].name+'</p><p>'+store[2].description+'</p><p>'+store[2].color+'</p><p>'+store[2].price+'</p></div></div><div><div><img width="200" height="200" id="productimage" src='+store[3].photo+'></div></p><div class="d-flex flex-column"><p>'+store[3].name+'</p><p>'+store[3].description+'</p><p>'+store[3].color+'</p><p>'+store[3].price+'</p></div></div></div>')
+            })
+          
         </script>
         </div>
  

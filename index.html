@@ -28,7 +28,7 @@
                         <div class="d-flex justify-content-between">
                         <h2 class="text-center">Clothing Store In Progress</h2>
                             <input class="border  border-dark m-3 rounded w-25" placeholder="search"/>
-                            <span><p style="margin:15px">login</p></span>
+                            <span class="d-flex flex-row align-items-center  "><p style="margin:15px">login</p><span>cart</span></span>
 
                     </div>
                         <ul id="navmenu" class="d-flex flex-row list-unstyled justify-content-around bg-primary bg-gradient" >
@@ -58,11 +58,34 @@
                     </nav>
 
                 </div>
+                <div class="bg-info d-flex justify-content-around flex-column" style="height: 200px;">
+                    <h4 class="text-center">Featured Items</h4>
+                    <span class="d-flex justify-content-around ">
+                        <button>Left</button>
+                        <span class="w-75 align-items-center">
+                            <img scr="hat.jpg"/>
+                        </span>
+                        <button>right</button>
+
+
+                    </span>
+                </div>
                <div>
                     <h4>New</h4>
                     <div id="new">
 
                     </div>
+               </div>
+               <div class="bg-primary d-flex justify-content-around mt-4 mb-4" >
+                <div class="d-flex flex-column align-items-center justify-content-center" style="margin: 30px;">
+                    <p>View new Deals</p>
+                    <button class="border border-0 bg-light ">view</button>
+                </div>
+                <div class="d-flex flex-column align-items-center justify-content-center" style="margin: 30px;">
+                    <p>View top Sellers</p>
+                    <button class="border border-0 bg-light">view</button>
+                </div>
+                
                </div>
         <div class="container-fluid">
             <div class="">
@@ -82,7 +105,9 @@
         <div>
             <h4>Best Sellers</h4>
         </div>
+
         <div>
+
             <h3>Data from Spring Boot</h3>
             <div id="data">
 
@@ -134,6 +159,11 @@
             <button id="button" type="button" class="btn btn-link">Add</button>
            
         </form>
+        <footer class="bg-primary align-items-center text-center" style="height:100px">
+            <div>
+                <p>Sign Up Now Get 20% off your first purchase</p>
+            </div>
+        </footer>
         
         <script>
             $(document).ready(function () {
@@ -208,7 +238,7 @@
                 //     $("#new").append('<div class="d-flex flex-column "><div><img width="200" height="200" id="productimage" src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div></div>')
                 // })
                console.log(store[1].price)
-                $("#new").append('<div class="d-flex flex-row justify-content-around"><div class="d-flex flex-column "><div><img width="200" height="200" id="productimage" src='+store[0].photo+'></div></p><div class="d-flex flex-column"><p>'+store[0].name+'</p><p>'+store[0].description+'</p><p>'+store[0].color+'</p><p>'+store[0].price+'</p></div></div><div><div><img width="200" height="200" id="productimage" src='+store[1].photo+'></div></p><div class="d-flex flex-column"><p>'+store[1].name+'</p><p>'+store[1].description+'</p><p>'+store[1].color+'</p><p>'+store[1].price+'</p></div></div><div><div><img width="200" height="200" id="productimage" src='+store[2].photo+'></div></p><div class="d-flex flex-column"><p>'+store[2].name+'</p><p>'+store[2].description+'</p><p>'+store[2].color+'</p><p>'+store[2].price+'</p></div></div><div><div><img width="200" height="200" id="productimage" src='+store[3].photo+'></div></p><div class="d-flex flex-column"><p>'+store[3].name+'</p><p>'+store[3].description+'</p><p>'+store[3].color+'</p><p>'+store[3].price+'</p></div></div></div>')
+                $("#new").append('<div class="d-flex flex-row justify-content-around"><div class="d-flex flex-column "><div><img width="200" height="200" id="productimage" src='+store[0].photo+'></div></p><div class="d-flex flex-column"><p>'+store[0].name+'</p><p>'+store[0].description+'</p><p>'+store[0].color+'</p><p>'+store[0].price+'</p></div><button>add to</button></div><div><div><img width="200" height="200" id="productimage" src='+store[1].photo+'></div></p><div class="d-flex flex-column"><p>'+store[1].name+'</p><p>'+store[1].description+'</p><p>'+store[1].color+'</p><p>'+store[1].price+'</p></div><button class="w-100">add to cart</button></div><div><div><img width="200" height="200" id="productimage" src='+store[2].photo+'></div></p><div class="d-flex flex-column"><p>'+store[2].name+'</p><p>'+store[2].description+'</p><p>'+store[2].color+'</p><p>'+store[2].price+'</p></div><button class="w-100">add to cart</button></div><div><div><img width="200" height="200" id="productimage" src='+store[3].photo+'></div></p><div class="d-flex flex-column"><p>'+store[3].name+'</p><p>'+store[3].description+'</p><p>'+store[3].color+'</p><p>'+store[3].price+'</p></div><button class="w-100">add to cart</button></div></div>')
             })
           
         </script>

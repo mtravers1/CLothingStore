@@ -3,7 +3,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-        <linl rel="stylesheet" href="style.css"></linl>
+        <link rel="stylesheet" href="./style.css"></link>
     
     </head>
     <body>
@@ -24,7 +24,7 @@
                  </script>
               <div>
                 <div>
-                    <nav class=" navbar-nav mr-auto " >
+                    <nav id="nav" class=" navbar-nav mr-auto " >
                         <div class="d-flex justify-content-between">
                         <h2 class="text-center">Clothing Store In Progress</h2>
                             <input class="border  border-dark m-3 rounded w-25" placeholder="search"/>
@@ -51,6 +51,11 @@
                                         border:none;
                                         background-color: none;
                                     }
+                                    @media(max-width:600px){
+                                        .navmenu ul{
+                                            display: none;
+                                        }
+                                    }
                                 </style>
                                 </div>
                             </li>
@@ -58,14 +63,69 @@
                     </nav>
 
                 </div>
-                <div class="bg-info d-flex justify-content-around flex-column" style="height: 200px;">
-                    <h4 class="text-center">Featured Items</h4>
-                    <span class="d-flex justify-content-around ">
-                        <button>Left</button>
+                <div class="bg-info d-flex justify-content-around " style="">
+                    <div class="position-relative" style="top: 200px;">
+                        <button id="next">Left</button>
+
+                    </div>
+                    
+                    
+                    <div>
+                        <h4 class="text-center">Featured Items</h4>
+                        <div id="slider">
+                            <figure>
+                                <span>
+                                    <img id="img" src="hoodie.jpg"/>
+                                    
+                                </span>
+                                <img id="img"src="hat.jpg"/>
+                                <img id="img" src="foam.jpg"/>
+                                <img id="img" src="juicer.jpg"/>
+                                <img id="img" src="xbox.jpg"/>
+
+
+                               
+    
+    
+                            </figure>
+                            <style>
+                                #slider{
+                                    /* width:90%; */
+                                    margin: 50px auto;
+                                    position: relative;
+                                    box-shadow: 0px 0px 10px 3px grey;
+                                    /* overflow: auto; */
+                                    overflow: auto;
+                                    border:5px solid;
+                                }
+
+                                #slider figure{
+                                    margin:0px;
+                                    position:relative;
+                                    width:200%;
+                                    left:0px;
+                                    transition: .5s, ease-in-out;
+                                }
+                                #img{
+                                    width:15%;
+                                    height: 100%;
+                                    float: left;
+                                }
+
+                            </style>
+
+                        </div>
+                    
+                        
+                    </div>
+                    <div class="position-relative" style="top: 200px;">
+                        <button id="previous">right</button>
+
+                    </div>
+                    <!-- <span class="d-flex justify-content-around ">
                         <span class="w-75 align-items-center">
                             <img scr="hat.jpg"/>
-                        </span>
-                        <button>right</button>
+                        </span> -->
 
 
                     </span>
@@ -164,6 +224,7 @@
                 <p>Sign Up Now Get 20% off your first purchase</p>
             </div>
         </footer>
+       
         
         <script>
             $(document).ready(function () {
@@ -180,15 +241,28 @@
                 // })
 
                 $.each(store, function(key, val){
-                    $("#store").append('<div class="d-flex flex-column  "><div><img src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div><button id="add">Add to cart</button></div>')
+                    $("#store").append('<div class="d-flex flex-column  "><div><img src='+val.photo+'></div></p><div class="d-flex flex-column"><p>'+val.name+'</p><p>'+val.description+'</p><p>'+val.color+'</p><p>'+val.price+'</p></div><button id="add">Added to cart</button></div>')
                      console.log(store[1])               
                 })
                 $("#add").click(function(){
-                        
-                        let name=val.name;
-                        console.log(name)
+                        // console.log("added")
+                        alert("added to cart")
                     })
               })
+        </script>
+         <script>
+            $(document).ready(function(){
+                x=0;
+                $("#previous").click(function(){
+                    x=(x<=200)?(x+50):0;
+                    $('figure').css('left', -x+"%")
+
+                    
+                })
+                $("#next").click(function(){
+                    x=(x>=0)?(x-50):0;
+                    $('figure').css('left', -x+"%")})
+            })
         </script>
         <script>
             $(document).ready(function(){
@@ -247,4 +321,4 @@
 
    
     </body>
-</html>
+</html>}

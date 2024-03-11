@@ -4,6 +4,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
         <link rel="stylesheet" href="./style.css"></link>
+        <!-- https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.class -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
+
     
     </head>
     <body>
@@ -28,7 +31,7 @@
                         <div class="d-flex justify-content-between">
                         <h2 class="text-center">Clothing Store In Progress</h2>
                             <input class="border  border-dark m-3 rounded w-25" placeholder="search"/>
-                            <span class="d-flex flex-row align-items-center  "><p style="margin:15px">login</p><span>cart</span></span>
+                            <span class="d-flex flex-row align-items-center  "><p style="margin:15px">login</p><span><button><a href='cart.html'>Cart</a></button></span>
 
                     </div>
                         <ul id="navmenu" class="d-flex flex-row list-unstyled justify-content-around bg-primary bg-gradient" >
@@ -66,6 +69,7 @@
                 <div class="bg-info d-flex justify-content-around " style="">
                     <div class="position-relative" style="top: 200px;">
                         <button id="next">Left</button>
+                        <i class="fa-regular fa-arrow-right"></i>
 
                     </div>
                     
@@ -118,6 +122,11 @@
                     
                         
                     </div>
+                    <div id="load"></div>
+                    <div>
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
                     <div class="position-relative" style="top: 200px;">
                         <button id="previous">right</button>
 
@@ -139,10 +148,12 @@
                <div class="bg-primary d-flex justify-content-around mt-4 mb-4" >
                 <div class="d-flex flex-column align-items-center justify-content-center" style="margin: 30px;">
                     <p>View new Deals</p>
+                    <p>Get up to 50% on selected Items</p>
                     <button class="border border-0 bg-light ">view</button>
                 </div>
                 <div class="d-flex flex-column align-items-center justify-content-center" style="margin: 30px;">
                     <p>View top Sellers</p>
+                    <p>View Sellers with the best overall rating</p>
                     <button class="border border-0 bg-light">view</button>
                 </div>
                 
@@ -249,6 +260,20 @@
                         alert("added to cart")
                     })
               })
+        </script>
+        <script>
+            $(document).ready(function(){
+                $.get('items.json', function(data, status){
+                    console.log(data)
+                    let items=data
+                    console.log(items)
+                    $.each(items,function(key, val){
+                        $("#load").append('<p>'+val.name+'</p><p>'+val.price+'</p>')
+
+                    })
+                })
+                // ("#load").load('new.html').html()
+            })
         </script>
          <script>
             $(document).ready(function(){
